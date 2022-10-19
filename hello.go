@@ -74,3 +74,23 @@ func casting() {
 	cV9 := fmt.Sprintf("%f", 3.14)
 	pl(cV9, tp(cV9))
 }
+
+func logicalConditions() {
+	// Conditional Operators ==, !=, >, <, >=, <=
+	// Logical Operators: &&, ||, !
+
+	iAge := 18
+
+	if (iAge >= 1) && (iAge <= 18) {
+		pl("Important Bithday")
+	} else if (iAge == 21) || (iAge == 50) {
+		pl("Important Bithday")
+	} else if iAge >= 65 {
+		pl("Not Important Bithday")
+	} else {
+		pl("Not Important Bithday")
+	}
+
+	pl("!true", !true)
+
+}
