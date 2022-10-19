@@ -5,12 +5,13 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"reflect"
 )
 
 var pl = fmt.Println
 
 func main() {
-	variables()
+	dataTypes()
 }
 
 func nameQuestion() {
@@ -32,4 +33,14 @@ func variables() {
 	v4 := 2.4
 
 	pl(vName, v1, v2, v3, v4)
+}
+
+func dataTypes() {
+	// int, float, bool, string, rune
+	// Default type 0, 0.0, false, ""
+
+	pl(reflect.TypeOf(25))
+	pl(reflect.TypeOf(3.14))
+	pl(reflect.TypeOf(true))
+	pl(reflect.TypeOf("Hello"))
 }
