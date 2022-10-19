@@ -10,7 +10,7 @@ import (
 var pl = fmt.Println
 
 func main() {
-	nameQuestion()
+	variables()
 }
 
 func nameQuestion() {
@@ -23,4 +23,13 @@ func nameQuestion() {
 	} else {
 		log.Fatal(err)
 	}
+}
+
+func variables() {
+	var vName string = "Edu"
+	v1, v2 := 1.2, 3.4
+	v3 := "hello"
+	v4 := 2.4
+
+	pl(vName, v1, v2, v3, v4)
 }
