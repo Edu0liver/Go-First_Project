@@ -8,6 +8,7 @@ import (
 	"reflect"
 	"strconv"
 	"strings"
+	"time"
 	"unicode/utf8"
 )
 
@@ -16,7 +17,7 @@ var tp = reflect.TypeOf
 var sc = fmt.Scan
 
 func main() {
-	runes()
+	timeManipulate()
 }
 
 func nameQuestion() {
@@ -129,4 +130,12 @@ func runes() {
 	for i, runeVal := range rStr {
 		fmt.Printf("%d : %#U : %c\n", i, runeVal, runeVal)
 	}
+}
+
+func timeManipulate() {
+	now := time.Now()
+
+	pl(now.Year(), now.Month(), now.Day())
+	pl(now.Hour(), now.Minute(), now.Second())
+
 }
