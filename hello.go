@@ -8,6 +8,7 @@ import (
 	"reflect"
 	"strconv"
 	"strings"
+	"unicode/utf8"
 )
 
 var pl = fmt.Println
@@ -15,7 +16,7 @@ var tp = reflect.TypeOf
 var sc = fmt.Scan
 
 func main() {
-	stringsManipulate()
+	runes()
 }
 
 func nameQuestion() {
@@ -118,4 +119,14 @@ func stringsManipulate() {
 	pl("Upper:", strings.ToUpper(sV2))
 	pl("Prefix:", strings.HasPrefix("tococat", "toco"))
 	pl("Suffix:", strings.HasSuffix("tococat", "cat"))
+}
+
+func runes() {
+	rStr := "abcdefg"
+
+	pl("Rune Count:", utf8.RuneCountInString(rStr))
+
+	for i, runeVal := range rStr {
+		fmt.Printf("%d : %#U : %c\n", i, runeVal, runeVal)
+	}
 }
