@@ -7,13 +7,15 @@ import (
 	"os"
 	"reflect"
 	"strconv"
+	"strings"
 )
 
 var pl = fmt.Println
 var tp = reflect.TypeOf
+var sc = fmt.Scan
 
 func main() {
-	casting()
+	stringsManipulate()
 }
 
 func nameQuestion() {
@@ -79,18 +81,41 @@ func logicalConditions() {
 	// Conditional Operators ==, !=, >, <, >=, <=
 	// Logical Operators: &&, ||, !
 
-	iAge := 18
+	iAge := 0
+
+	sc(&iAge)
 
 	if (iAge >= 1) && (iAge <= 18) {
 		pl("Important Bithday")
 	} else if (iAge == 21) || (iAge == 50) {
 		pl("Important Bithday")
 	} else if iAge >= 65 {
-		pl("Not Important Bithday")
+		pl("Important Bithday")
 	} else {
 		pl("Not Important Bithday")
 	}
 
-	pl("!true", !true)
+	pl("!true =", !true)
 
+}
+
+func stringsManipulate() {
+	sV1 := "A word"
+	replacer := strings.NewReplacer("A", "Another")
+	sV2 := replacer.Replace(sV1)
+
+	pl(sV2)
+	pl("Length:", len(sV2))
+	pl("Contains Another:", strings.Contains(sV2, "Another"))
+	pl("'o' index:", strings.Index(sV2, "o"))
+	pl("Replace:", strings.Replace(sV2, "o", "0", -1))
+
+	sV3 := "\nSome words\n"
+	sV3 = strings.TrimSpace(sV3)
+
+	pl("Split:", strings.Split("a-b-c-d", "-"))
+	pl("Lower:", strings.ToLower(sV2))
+	pl("Upper:", strings.ToUpper(sV2))
+	pl("Prefix:", strings.HasPrefix("tococat", "toco"))
+	pl("Suffix:", strings.HasSuffix("tococat", "cat"))
 }
