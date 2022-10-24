@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"math"
+	"math/rand"
 	"os"
 	"reflect"
 	"strconv"
@@ -18,7 +19,7 @@ var tp = reflect.TypeOf
 var sc = fmt.Scan
 
 func main() {
-	mathMain()
+	loops()
 }
 
 func nameQuestion() {
@@ -182,4 +183,35 @@ func mathMain() {
 	sp1 := fmt.Sprintf("%9.f\n", 3.141592)
 	pl(sp1)
 
+}
+
+func loops() {
+	seedSecs := time.Now().Unix()
+	rand.Seed(seedSecs)
+	randNum := rand.Intn(50) + 1
+
+	for true {
+
+		fmt.Print("Guess a number between 0 and 50: ")
+		pl("Random Number is:", randNum)
+
+		reader := bufio.NewReader(os.Stdin)
+		guess, err := reader.ReadString('\n')
+
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		guess = strings.TrimSpace(guess)
+		iGuess, err := strconv.Atoi(guess)
+
+		if iGuess > randNum {
+			pl("Pick a Lower Value!")
+		} else if iGuess < randNum {
+			pl("Pick a Higher Value!")
+		} else {
+			pl("You Guessed it!")
+			break
+		}
+	}
 }
