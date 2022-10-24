@@ -19,7 +19,7 @@ var tp = reflect.TypeOf
 var sc = fmt.Scan
 
 func main() {
-	loops()
+	rangeMain()
 }
 
 func nameQuestion() {
@@ -213,5 +213,13 @@ func loops() {
 			pl("You Guessed it!")
 			break
 		}
+	}
+}
+
+func rangeMain() {
+	aNums := []int{1, 2, 3}
+
+	for _, num := range aNums {
+		pl(num)
 	}
 }
