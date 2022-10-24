@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"log"
+	"math"
 	"os"
 	"reflect"
 	"strconv"
@@ -17,7 +18,7 @@ var tp = reflect.TypeOf
 var sc = fmt.Scan
 
 func main() {
-	timeManipulate()
+	mathMain()
 }
 
 func nameQuestion() {
@@ -137,5 +138,48 @@ func timeManipulate() {
 
 	pl(now.Year(), now.Month(), now.Day())
 	pl(now.Hour(), now.Minute(), now.Second())
+
+}
+
+func mathMain() {
+	pl("Abs(-10) =", math.Abs(-10))
+	pl("Pow(4, 2) =", math.Pow(4, 2))
+	pl("Sqrt(16) =", math.Sqrt(16))
+	pl("Cbrt(8) =", math.Cbrt(8))
+	pl("Ceil(4.4) =", math.Ceil(4.4))
+	pl("Floor(4.4) =", math.Floor(4.4))
+	pl("Round(4.4) =", math.Round(4.4))
+	pl("Log2(8) =", math.Log2(8))
+	pl("Log10(100) =", math.Log10(100))
+
+	// Get the log of e to the power of 2
+	pl("Log(7.389) =", math.Log(math.Exp(2)))
+	pl("Max(5,4) =", math.Max(5, 4))
+	pl("Min(5,4) =", math.Min(5, 4))
+
+	// Convert 90 degrees to radians
+	r90 := 90 * math.Pi / 180
+	d90 := r90 * (180 / math.Pi)
+
+	fmt.Printf("%.2f radians = %.2f degrees\n", r90, d90)
+
+	// %d : Integer
+	// %c : Character
+	// %f : Float
+	// %t : Boolean
+	// %s : String
+	// %o : Base 8
+	// %x : Base 16
+	// %v : Guessesbased on data type
+	// %T : Type of supplied value
+
+	fmt.Printf("%s %d %c %f %t %o %x\n", "Stuff", 1, 'A', 3.14, true, 1, 1)
+
+	fmt.Printf("%9f\n", 3.14)
+	fmt.Printf("%.2f\n", 3.141592)
+	fmt.Printf("%9.f\n", 3.141592)
+
+	sp1 := fmt.Sprintf("%9.f\n", 3.141592)
+	pl(sp1)
 
 }
